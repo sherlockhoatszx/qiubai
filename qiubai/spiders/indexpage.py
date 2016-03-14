@@ -16,7 +16,7 @@ class QiuBaiSpider(scrapy.Spider):
     start_urls=['http://www.qiushibaike.com']
     
     def parse(self, response):        
-        for href in response.xpaht('//span[@class="stats-commnets"]/a/@href').extract():
+        for href in response.xpath('//span[@class="stats-commnets"]/a/@href').extract():
             detail_url = response.urljoin(href)
             req = Request(detail_url,self.parse_detail_page) #小括号实例化
             item = QiubaiItem()
