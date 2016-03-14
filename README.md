@@ -1,4 +1,4 @@
-## introduction
+## Introduction
 Here is a crawler demo excuted by 'Scrapy'. It crawl the website of 'qiushibaike',which is a joke collection web in china.
 
 ##Items
@@ -7,6 +7,7 @@ author
 content
 comment
 
-##Database:Mongodb
+##Database
+Mongodb, a 'key-value'database
 
 
