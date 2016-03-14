@@ -19,9 +19,9 @@ NEWSPIDER_MODULE = 'qiubai.spiders'
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7'
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
-ITEM_PIPELINES = {'qiubai.pipelines.MongoPipeline':300,}
-MONGO_URI ='127.0.0.1:27017'
-MONGO_DATABASE = 'qiubai'
+ITEM_PIPELINES = {'qiubai.pipelines.MongoPipeline':300}
+MONGO_URI ="127.0.0.1:27017"
+MONGO_DATABASE = "qiubai"
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
 
