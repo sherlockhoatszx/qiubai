@@ -12,7 +12,7 @@ from qiubai.items import QiubaiItem
 
 
 class QiuBaiSpider(scrapy.Spider):
-    name = 'QiuBai'
+    name = 'qiubai'
     start_urls=['http://www.qiushibaike.com']
     
     def parse(self, response):        
