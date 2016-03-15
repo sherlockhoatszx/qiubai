@@ -16,7 +16,7 @@ class QiuBaiSpider(scrapy.Spider):
     start_urls=['http://www.qiushibaike.com']
     
     def parse(self, response):        
-        for href in response.xpath('//span[@class="stats-commnets"]/a/@href').extract():
+        for href in response.xpath('//span[@class="stats-comments"]/a/@href').extract():
             detail_url = response.urljoin(href)
             req = Request(detail_url,self.parse_detail_page) #小括号实例化
             item = QiubaiItem()
@@ -29,11 +29,11 @@ class QiuBaiSpider(scrapy.Spider):
         item = response.meta['item']
         item['author']=response.xpath('//div[@class="author clearfix"]/a[2]/h2\
         /text()').extract()[0]  #if response.xpath('//div[@class = "author clearfix"]').extract()
-        item['content']=response.xpath('//div[@class="content"])/text()').extrct()\
+        item['content']=response.xpath('//div[@class="content"]/text()').extract()\
         [0]
         comments = []
-        for comment in response.xpath('//div[@class="content"]/text()').extract\
-        ()[0]:
+        for comment in response.xpath('//div[starts-with(@class,"comment-block \
+        clearfix floor")]'):
             comment_author=comment.xpath('./div[2]/a/text()').extract()[0]
             comment_content= comment.xpath('./div[2]/span/text()').extract()[0]
             comments.append({'comment_author':comment_author,'comment_content':\
