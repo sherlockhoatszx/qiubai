@@ -6,13 +6,16 @@
     <title></title>
 </head>
 <body>
-    <h3>作者</h3>
-    <div>内容</div>
+    {%for joke in p_jokes %}
+    <h3>{{joke.author}}</h3>
+    <div>{{joke.content}}</div>
     <ul>
-     <li>评论作者：评论内容</li>
+      {%for comment in joke.comments %}
+      <li>{{ comment.comment_author}}:{{comment.comment_content }}</li>
+      {% endfor %}
     </ul>
     <hr />
-
-    I am a spider
+    {% endfor %}
+    from spider by slk 
 </body>
 </html>
