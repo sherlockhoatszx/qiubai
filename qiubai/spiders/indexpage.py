@@ -28,9 +28,11 @@ class QiuBaiSpider(scrapy.Spider):
     def parse_detail_page(self,response):
         item = response.meta['item']
         item['author']=response.xpath('//div[@class="author clearfix"]/a[2]/h2\
-        /text()').extract()[0]  #if response.xpath('//div[@class = "author clearfix"]').extract()
+        /text()').extract()[0] if response.xpath('//div[@class = "author clearfix"]'\
+        ).extract() else ""
         item['content']=response.xpath('//div[@class="content"]/text()').extract()\
         [0]
+        
         comments = []
         for comment in response.xpath('//div[starts-with(@class,"comment-block \
         clearfix floor")]'):
