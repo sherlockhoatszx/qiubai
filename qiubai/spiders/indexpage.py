@@ -30,16 +30,15 @@ class QiuBaiSpider(scrapy.Spider):
         item['author']=response.xpath('//div[@class="author clearfix"]/a[2]/h2\
         /text()').extract()[0] if response.xpath('//div[@class = "author clearfix"]'\
         ).extract() else ""
-        item['content']=response.xpath('//div[@class="content"]/text()').extract()\
-        [0]
-        
+        item['content']=response.xpath('//div[@class="content"]/text()').extract()[0]
+        #but the crawl content only include one line
         comments = []
-        for comment in response.xpath('//div[starts-with(@class,"comment-block \
+        for comment in response.xpath('//div[starts-with (@class,"comment-block \
         clearfix floor")]'):
             comment_author=comment.xpath('./div[2]/a/text()').extract()[0]
             comment_content= comment.xpath('./div[2]/span/text()').extract()[0]
-            comments.append({'comment_author':comment_author,'comment_content':\
-            comment_content})
+            comments.append({"comment_author":comment_author,"comment_content":\
+            comment_content})# comment seems not workding
         item['comments']=comments
         yield item 
             
