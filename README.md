@@ -1,7 +1,7 @@
 ## Introduction
 Here is a crawler demo excuted by 'Scrapy'. It crawls the website of 'qiushibaike',which is a joke collection web in china.
 
-##Items defination:
+##Items defination
 include:
 author
 content
